@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from models.cycle_gan.adaptive_cycle_gan_pt import config_a_cgan, train_a_cgan
 
 def main(args):
-  config_a_cgan config
+  config = config_a_cgan()
   config.num_epochs = args.epochs   
   config.texture_loss_weight = args.texture_loss_weight
 

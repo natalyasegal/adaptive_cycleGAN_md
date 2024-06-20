@@ -103,7 +103,7 @@ class config_a_cgan():
         self.beta1 = 0.5
         self.texture_loss_weight = 0.85  #0.9 #0.4  # Adjust this weight to put less emphasis on texture loss
 
-def train_a_cgan(config):
+def train_a_cgan(config, dataloader_A, dataloader_B):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     # Training parameters

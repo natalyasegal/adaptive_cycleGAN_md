@@ -133,7 +133,3 @@ def validate_model(model, val_loader, criterion, device):
     return all_labels, all_predictions, all_probs
 
 
-# Function to save the model
-def save_model(model, path):
-    torch.save(model.state_dict(), path)
-    print("Model saved successfully.")

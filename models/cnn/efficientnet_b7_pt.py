@@ -137,31 +137,3 @@ def validate_model(model, val_loader, criterion, device):
 def save_model(model, path):
     torch.save(model.state_dict(), path)
     print("Model saved successfully.")
-
-
-# Main function to run the training and validation
-def main():
-    data_dir = './datasets/ed/B_to/'  # Path to the dataset
-    batch_size = 32
-    num_epochs = 10
-    val_split = 0.2 
-    model_save_path = 'efficientnet_b7_binary_classification.pth'
-
-    train_loader, val_loader = prepare_data(data_dir, batch_size, val_split=val_split)
-    model = create_model(num_classes=2)
-    criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-    train_model(model, train_loader, criterion, optimizer, device, num_epochs)
-    labels, predictions, probs = validate_model(model, val_loader, criterion, device)
-    save_model(model, model_save_path)
-    if val_split > 0.1:
-      calculate_metrics(labels, predictions, probs)
-      plot_roc_curve(labels, probs)
-
-    print(f"Total samples: {len(labels)}")
-    print(f"Samples per class: {dict(zip(*np.unique(labels, return_counts=True)))}")
-
-if __name__ == "__main__":
-    main()

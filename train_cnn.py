@@ -9,7 +9,8 @@ import torch.optim as optim
 from torchvision import datasets, transforms#, models
 from torch.utils.data import DataLoader
 import models.cnn.efficientnet_b7_pt as en
-from models.cnn.efficientnet_b7_pt import train_model, validate_model, calculate_metrics, plot_roc_curve
+from models.cnn.efficientnet_b7_pt import train_model, validate_model
+from models.cnn.evaluation import calculate_metrics, plot_roc_curve
 import numpy as np
 
 # Main function to run the training and validation

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import os
 import glob
+from adaptive_cycle_gan_pt import Generator
 
 
 # Function to preprocess the image

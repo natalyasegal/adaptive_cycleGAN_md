@@ -65,7 +65,7 @@ def main(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     labels, predictions, probs = test_model(model, test_loader, device)
 
-    calculate_metrics_test(labels, predictions, probs, th1 = 0.8)
+    calculate_metrics_test(labels, predictions, probs, th1 = args.th)
     plot_roc_curve(labels, probs)
   
     print(f"Total samples: {len(labels)}")
@@ -77,6 +77,10 @@ if __name__ == '__main__':
                         help='batch size.',
                         type=int,
                         default=32)
+    parser.add_argument('--th',
+                        help='experimantal threshold.',
+                        type=int,
+                        default=0.5)
     parser.add_argument('--test_data_path',
                         help='Path to the test dataset',
                         type=str,

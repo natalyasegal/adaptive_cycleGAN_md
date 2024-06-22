@@ -6,6 +6,7 @@ from torch.utils.data import DataLoader, random_split
 from efficientnet_pytorch import EfficientNet
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score, roc_auc_score, roc_curve, confusion_matrix
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 # Function to plot ROC curve

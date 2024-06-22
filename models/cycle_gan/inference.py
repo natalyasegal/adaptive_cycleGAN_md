@@ -20,7 +20,7 @@ def postprocess_image(tensor, transform):
     return transforms.ToPILImage()(tensor)
 
 # Shifts distribution for  single image
-def shift_one(test_image_path, transform, base_out_path = "out", show = True, save = True):
+def shift_one(test_image_path, device, transform, base_out_path = "out", show = True, save = True):
     # Load the trained models
     netG_A2B = Generator(input_nc=1, output_nc=1).to(device)
     netG_B2A = Generator(input_nc=1, output_nc=1).to(device)
@@ -79,13 +79,13 @@ def batch_process_images(root_dir, base_out_path):
     image_paths = get_all_image_paths(root_dir)
     for image_path in image_paths:
         try:
-            shift_one(image_path, transform, base_out_path, show = False, save = True) 
+            shift_one(image_path, device, transform, base_out_path, show = False, save = True) 
         except Exception as e:
             print(f"Failed to process {image_path}: {e}")
 
     # Shifting of an example single image:
     test_image_path = './datasets/ed/A_from/class_1_blast/101.png'   
-    image = test_one(test_image_path, transform, show = False, save = False)
+    image = shift_one(test_image_path, device, transform, show = False, save = False)
     image.save('sample_image_101.jpg')  
 
 if __name__ == "__main__":

@@ -29,7 +29,8 @@ def main(args):
 
   train_a_cgan(config, dataloader_A, dataloader_B)
 
-  batch_process_images(args.from_dataset_path, args.shifted_dataset_out_base_path)
+  if args.batch_inference:
+    batch_process_images(args.from_dataset_path, args.shifted_dataset_out_path)
  
 
 if __name__ == '__main__':
@@ -54,10 +55,14 @@ if __name__ == '__main__':
                         help='to dataset path, dataset with the destination distribution',
                         type=str,
                         default='./datasets/ed/B_to/')
-      parser.add_argument('--shifted_dataset_out_base_path',
+    parser.add_argument('--shifted_dataset_out_path',
                         help='to dataset path, dataset with the destination distribution',
                         type=str,
                         default='out')
+    parser.add_argument('--batch_inference', 
+                          action='store_true',
+                          help='If specified, performs batch inference.')
+
 
     args = parser.parse_args()
     main(args)

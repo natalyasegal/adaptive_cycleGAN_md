@@ -4,6 +4,7 @@ import os
 # Append the directory containing split.py to the path
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 import torch.nn as nn
+import torch.optim as optim
 from torchvision import datasets, transforms#, models
 from torch.utils.data import DataLoader
 import models.cnn.efficientnet_b7_pt as en

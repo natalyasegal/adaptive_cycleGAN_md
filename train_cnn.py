@@ -9,6 +9,8 @@ import torch.optim as optim
 from torchvision import datasets, transforms#, models
 from torch.utils.data import DataLoader
 import models.cnn.efficientnet_b7_pt as en
+from adaptive_cycleGAN_md.models.cnn.efficientnet_b7_pt import train_model, validate_model, calculate_metrics, plot_roc_curve
+
 
 # Main function to run the training and validation
 def main(args):
@@ -20,11 +22,11 @@ def main(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     train_model(model, train_loader, criterion, optimizer, device, args.epochs)
-    labels, predictions, probs = en.validate_model(model, val_loader, criterion, device)
+    labels, predictions, probs = validate_model(model, val_loader, criterion, device)
     en.save_model(model, args.model_save_path)
     if val_split > 0.1:
-      en.calculate_metrics(labels, predictions, probs)
-      en.plot_roc_curve(labels, probs)
+      calculate_metrics(labels, predictions, probs)
+      plot_roc_curve(labels, probs)
     print(f"Total samples: {len(labels)}")
     print(f"Samples per class: {dict(zip(*np.unique(labels, return_counts=True)))}")
 

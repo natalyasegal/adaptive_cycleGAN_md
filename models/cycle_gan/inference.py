@@ -47,7 +47,7 @@ def shift_one(test_image_path, device, transform, base_out_path = "out", show = 
       s = str(test_image_path.split('/')[-1])
       d = str(test_image_path.split('/')[-2])
       out_path  = f'{base_out_path}/{d}/{s}'
-      output_image.save(out_path)
+      output_image..convert('L').save(out_path)
 
     if show:
       # Display the output image

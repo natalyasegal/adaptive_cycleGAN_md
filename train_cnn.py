@@ -52,15 +52,3 @@ if __name__ == '__main__':
     args = parser.parse_args()
     main(args)
 
-    train_model(model, train_loader, criterion, optimizer, device, num_epochs)
-    labels, predictions, probs = validate_model(model, val_loader, criterion, device)
-    save_model(model, model_save_path)
-    if val_split > 0.1:
-      calculate_metrics(labels, predictions, probs)
-      plot_roc_curve(labels, probs)
-
-    print(f"Total samples: {len(labels)}")
-    print(f"Samples per class: {dict(zip(*np.unique(labels, return_counts=True)))}")
-
-if __name__ == "__main__":
-    main()

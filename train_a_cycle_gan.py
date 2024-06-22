@@ -6,6 +6,7 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 from torchvision import datasets, transforms#, models
 from torch.utils.data import DataLoader
 from models.cycle_gan.adaptive_cycle_gan_pt import config_a_cgan, train_a_cgan
+from models.cycle_gan.inference import batch_process_images
 
 def main(args):
   config = config_a_cgan()
@@ -27,6 +28,9 @@ def main(args):
   dataloader_B = DataLoader(dataset_B, batch_size=1, shuffle=True)
 
   train_a_cgan(config, dataloader_A, dataloader_B)
+
+  batch_process_images(args.from_dataset_path, args.shifted_dataset_out_base_path)
+ 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('')
@@ -50,6 +54,10 @@ if __name__ == '__main__':
                         help='to dataset path, dataset with the destination distribution',
                         type=str,
                         default='./datasets/ed/B_to/')
+      parser.add_argument('--shifted_dataset_out_base_path',
+                        help='to dataset path, dataset with the destination distribution',
+                        type=str,
+                        default='out')
 
     args = parser.parse_args()
     main(args)

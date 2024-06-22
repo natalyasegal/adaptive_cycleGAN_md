@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import models.cnn.efficientnet_b7_pt as en
 from models.cnn.efficientnet_b7_pt import train_model, validate_model
-from models.cnn.evaluation import calculate_metrics, plot_roc_curve
+from models.cnn.evaluation import calculate_metrics_test, plot_roc_curve
 
 
 # Function to prepare data

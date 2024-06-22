@@ -79,7 +79,7 @@ if __name__ == '__main__':
                         default=32)
     parser.add_argument('--th',
                         help='experimantal threshold.',
-                        type=int,
+                        type=float,
                         default=0.5)
     parser.add_argument('--test_data_path',
                         help='Path to the test dataset',

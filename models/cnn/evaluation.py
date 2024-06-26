@@ -10,7 +10,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Function to plot ROC curve
-def plot_roc_curve(labels, probs):
+def plot_roc_curve(labels, probs, show = False):
     fpr, tpr, _ = roc_curve(labels, probs)
     plt.figure()
     plt.plot(fpr, tpr, color='blue', lw=2, label='ROC curve (area = %0.2f)' % roc_auc_score(labels, probs))
@@ -22,7 +22,8 @@ def plot_roc_curve(labels, probs):
     plt.title('Receiver Operating Characteristic')
     plt.legend(loc="lower right")
     plt.savefig('roc_curve.png', bbox_inches='tight')
-    plt.show()
+    if show:
+        plt.show()
     
   
 # Function to calculate evaluation metrics

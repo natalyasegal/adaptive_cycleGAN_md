@@ -21,7 +21,9 @@ def plot_roc_curve(labels, probs):
     plt.ylabel('True Positive Rate')
     plt.title('Receiver Operating Characteristic')
     plt.legend(loc="lower right")
+    plt.savefig('roc_curve.png', bbox_inches='tight')
     plt.show()
+    
   
 # Function to calculate evaluation metrics
 def calculate_metrics(labels, predictions, probs):

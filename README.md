@@ -66,7 +66,8 @@ After 10 epochs of the Cycle GAN, the ED3-shifted dataset performed better on th
 
 Table 2: Metrics received for blastocyst vs. non-blastocyst classifier on original and shifted datasets.
 
-![image](https://github.com/user-attachments/assets/68cca368-7375-4a47-9fc0-e6ec45ba0359)
+![image](https://github.com/user-attachments/assets/673136a3-c9e6-42cf-bef0-1c72d8db975d)
+
 
 We conducted our evaluation focusing on a single classification task. While various known classification tasks of differing complexity exist for embryo images, a more comprehensive approach would involve using a series of these tasks for thorough evaluation. We did not undertake these tasks here, as they were beyond the project's scope and would have required significant costs for labeling.
 The results from the Cycle GAN-based approach are significant because they demonstrate the potential to consolidate small medical datasets into a larger, unified dataset for consistent labeling and classifier training.

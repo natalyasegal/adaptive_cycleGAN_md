@@ -110,10 +110,12 @@ and its variants are available on GitHub (https://github.com/shafieelab/Medical-
 Motivation not to put too much strength on a texture loss in images below.
 
 Image example from the source domain:
+
 ![image](https://github.com/natalyasegal/adaptive_cycleGAN_md/assets/71938116/762bf556-3e63-4148-ab60-6fcacc48fb4f)
 
 
-Target abtained by Cycle-Gan-based model with too much strength on a texture loss
+Target obtained by Cycle-Gan-based model with too much strength on a texture loss:
+
 ![image](https://github.com/natalyasegal/adaptive_cycleGAN_md/assets/71938116/b9cfcdd2-cdbe-4109-a9c6-3eb127d507d4)
 
 
